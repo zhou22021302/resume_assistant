@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="周友成 - 产品经理。港口自动驾驶、C端增长、AI提效实践与复杂B端系统交付。">
+  <title>周友成 · Product Manager Portfolio</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --bg-2: #eef0f4;
+      --panel: #fbfcfd;
+      --panel-2: #f1f3f7;
+      --line: rgba(15, 23, 42, .1);
+      --line-strong: rgba(15, 23, 42, .22);
+      --text: #151a24;
+      --dim: #4b5568;
+      --faint: #8b94a6;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, .08);
+      --accent-line: rgba(59, 130, 246, .45);
+      --mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+      --sans: "PingFang SC", "HarmonyOS Sans SC", "MiSans", "Microsoft YaHei", "Segoe UI", sans-serif;
+      --display: "Bricolage Grotesque", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --w: 1280px;
+      --nav-h: 74px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes revealDown {
+      from { opacity: 0; transform: translateY(-50px) scale(.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .animate-fade-in { animation: fadeIn .8s ease-out forwards; }
+    .animate-slide-up { animation: slideUp .8s ease-out forwards; }
+    .animate-slide-left { animation: slideInLeft .8s ease-out forwards; }
+    .animate-slide-right { animation: slideInRight .8s ease-out forwards; }
+    .animate-scale-in { animation: scaleIn .6s ease-out forwards; }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; }
+    .animate-reveal-down { animation: revealDown 1.2s cubic-bezier(.25,.46,.45,.94) forwards; }
+
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+    .delay-400 { animation-delay: 400ms; }
+    .delay-500 { animation-delay: 500ms; }
+    .delay-600 { animation-delay: 600ms; }
+    .delay-700 { animation-delay: 700ms; }
+    .delay-800 { animation-delay: 800ms; }
+
+    .scroll-animate { opacity: 0; transform: translateY(40px); transition: opacity .8s ease-out, transform .8s ease-out; }
+    .scroll-animate.visible { opacity: 1; transform: translateY(0); }
+    .scroll-animate-left { opacity: 0; transform: translateX(-40px); transition: opacity .8s ease-out, transform .8s ease-out; }
+    .scroll-animate-left.visible { opacity: 1; transform: translateX(0); }
+    .scroll-animate-right { opacity: 0; transform: translateX(40px); transition: opacity .8s ease-out, transform .8s ease-out; }
+    .scroll-animate-right.visible { opacity: 1; transform: translateX(0); }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: auto;
+      min-width: 1280px;
+    }
+    body:after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    ::selection { background: var(--accent); color: #fff; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: var(--w); margin: 0 auto; }
+    .mono { font-family: var(--mono); letter-spacing: .12em; }
+    .accent { color: var(--accent); }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      background: rgba(245, 246, 248, .76);
+      backdrop-filter: blur(18px) saturate(1.4);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .nav-logo { font-size: 16px; font-weight: 600; letter-spacing: .18em; }
+    .nav-links { display: flex; align-items: center; gap: 34px; color: var(--dim); font-size: 14px; }
+    .nav-links a { position: relative; }
+    .nav-links a:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      height: 1px;
+      width: 100%;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .28s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover:after { transform: scaleX(1); transform-origin: left; }
+    .nav-cta {
+      padding: 10px 20px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: .14em;
+    }
+
+    .panel {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    .corner:before, .corner:after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+    }
+    .corner:before { top: -1px; left: -1px; border-top: 1px solid var(--accent-line); border-left: 1px solid var(--accent-line); }
+    .corner:after { right: -1px; bottom: -1px; border-right: 1px solid var(--accent-line); border-bottom: 1px solid var(--accent-line); }
+
+    .hero {
+      min-height: 860px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 88px 0 0;
+    }
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(900px 420px at 76% 10%, rgba(226, 58, 44, .07), transparent 68%),
+        radial-gradient(760px 420px at 15% 20%, rgba(70, 120, 170, .11), transparent 65%),
+        linear-gradient(180deg, rgba(245,246,248,.7), rgba(245,246,248,1));
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: start;
+      width: var(--w);
+      padding-bottom: 58px;
+    }
+    .hero-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .3em;
+      margin-bottom: 34px;
+      text-transform: uppercase;
+    }
+    .hello { color: var(--dim); font-size: 18px; margin-bottom: 16px; }
+    .hello strong { color: var(--text); font-size: 22px; letter-spacing: .08em; }
+    .hero-title {
+      font-family: var(--display);
+      font-size: 96px;
+      line-height: 1;
+      letter-spacing: -.018em;
+      text-transform: uppercase;
+      margin-left: -6px;
+      margin-bottom: 34px;
+      font-weight: 800;
+    }
+    .hero-lede {
+      width: 960px;
+      color: var(--dim);
+      font-size: 17px;
+      margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 24px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .14em;
+      transition: all .35s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59,130,246,.06), transparent);
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+    .btn:hover { 
+      transform: translateY(-3px) scale(1.02); 
+      border-color: var(--accent); 
+      color: var(--accent); 
+      box-shadow: 0 8px 24px rgba(59,130,246,.18);
+    }
+    .btn:hover:before { opacity: 1; }
+    .btn-solid { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn-solid:hover { 
+      background: #1d4ed8; 
+      border-color: #1d4ed8; 
+      color: #fff; 
+      box-shadow: 0 8px 28px rgba(59,130,246,.35);
+    }
+
+    .hero-card {
+      padding: 26px;
+      align-self: stretch;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .portrait-wrap {
+      position: relative;
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 22px;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .portrait-wrap img {
+      width: 118px;
+      height: 150px;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--line);
+      background: #fff;
+      filter: saturate(.9) contrast(1.02);
+    }
+    .portrait-name { font-size: 24px; font-weight: 700; letter-spacing: .08em; }
+    .portrait-role { color: var(--accent); margin-top: 8px; font-size: 14px; }
+    .portrait-meta { color: var(--faint); font-size: 11px; margin-top: 12px; }
+    .terminal {
+      margin-top: 28px;
+      background: rgba(13, 17, 24, .96);
+      border-radius: 8px;
+      color: #e9edf3;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(15, 23, 42, .28);
+    }
+    .term-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 12px 15px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .term-dot { width: 10px; height: 10px; border-radius: 50%; background: #303848; }
+    .term-title { margin-left: 10px; color: #7d8698; font-size: 11px; }
+    .term-body { padding: 20px 22px 24px; font-family: var(--mono); font-size: 12px; line-height: 2.05; }
+    .term-line { color: #7d8698; }
+    .term-line strong { color: #e9edf3; font-weight: 500; }
+    .term-arrow { color: var(--accent); }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .stat {
+      padding: 18px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+    }
+    .stat-value { color: var(--accent); font-size: 28px; font-weight: 700; line-height: 1.1; }
+    .stat-label { color: var(--dim); font-size: 12px; margin-top: 8px; letter-spacing: .08em; }
+
+    .sec-head { padding: 132px 0 64px; }
+    .sec-meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--faint);
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .sec-idx { color: var(--accent); }
+    .sec-line { flex: 1; height: 1px; background: var(--line); }
+    .sec-title {
+      margin-top: 28px;
+      font-family: var(--display);
+      font-size: 64px;
+      line-height: 1.1;
+      letter-spacing: -.012em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .sec-desc { max-width: 900px; color: var(--dim); margin-top: 22px; font-size: 15.5px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 420px minmax(0, 1fr);
+      gap: 86px;
+      align-items: start;
+      padding-bottom: 28px;
+    }
+    .about-card { padding: 24px; }
+    .about-glyph {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(15, 23, 42, .09);
+      font-size: 150px;
+      font-weight: 800;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        var(--panel-2);
+      background-size: 40px 40px;
+    }
+    .about-portrait-illustration {
+      height: 360px;
+      overflow: hidden;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+    }
+    .about-portrait-illustration img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(.96) contrast(1.02);
+    }
+    .contact-row {
+      display: flex;
+      gap: 24px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .contact-key { width: 72px; color: var(--faint); font-size: 11px; letter-spacing: .22em; }
+    .about-text p {
+      color: var(--dim);
+      margin-bottom: 22px;
+      font-size: 17px;
+      text-align: justify;
+    }
+    .about-text p:first-child:first-letter { color: var(--accent); }
+    .about-text { padding-top: 24px; }
+    .timeline { margin-top: 0; }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 34px;
+      padding: 20px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .tl-period { color: var(--faint); font-size: 12px; letter-spacing: .12em; padding-top: 4px; }
+    .tl-org { font-size: 17px; font-weight: 700; }
+    .tl-role { color: var(--accent); margin-left: 12px; font-size: 13px; font-weight: 400; }
+    .tl-note { color: var(--dim); font-size: 14px; margin-top: 4px; }
+
+    .project-list { display: flex; flex-direction: column; gap: 52px; padding-bottom: 20px; }
+    .project {
+      display: grid;
+      grid-template-columns: 52% 1fr;
+      min-height: 510px;
+      overflow: hidden;
+      transition: all .4s cubic-bezier(.4,0,.2,1);
+    }
+    .project:hover { 
+      transform: translateY(-6px); 
+      box-shadow: 0 20px 60px rgba(59,130,246,.12); 
+    }
+    .project:nth-child(even) { grid-template-columns: 1fr 52%; }
+    .project:nth-child(even) .project-visual { order: 2; border-right: 0; border-left: 1px solid var(--line); }
+    .project-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background:
+        radial-gradient(600px 360px at 40% 30%, rgba(70, 120, 170, .13), transparent 72%),
+        var(--bg-2);
+      border-right: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .project-image {
+      max-width: 90%;
+      max-height: 85%;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: saturate(1.05) contrast(1.03);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(59,130,246,.08);
+    }
+    .project-visual:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.24), transparent 28%),
+        linear-gradient(0deg, rgba(15,23,42,.08), transparent 48%, rgba(255,255,255,.08));
+      mix-blend-mode: screen;
+    }
+    .project-info { padding: 52px 50px; display: flex; flex-direction: column; justify-content: center; }
+    .project-meta { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 12px; margin-bottom: 24px; }
+    .badge { padding: 4px 12px; border: 1px solid var(--accent-line); color: var(--accent); background: var(--accent-soft); border-radius: 999px; font-size: 11px; }
+    .project-period { margin-left: auto; color: var(--faint); }
+    .project-title { font-size: 30px; line-height: 1.25; font-weight: 800; margin-bottom: 16px; }
+    .project-desc { color: var(--dim); font-size: 15px; margin-bottom: 24px; text-align: justify; }
+    .project-points li {
+      position: relative;
+      padding-left: 22px;
+      color: var(--dim);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .project-points li:before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: .75em;
+      width: 8px;
+      height: 1.5px;
+      background: var(--accent);
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; padding-top: 22px; margin-top: 18px; border-top: 1px solid var(--line); }
+    .chip { padding: 5px 12px; border: 1px solid var(--line); color: var(--dim); font-size: 12px; border-radius: 3px; }
+
+    .visual-window {
+      width: min(620px, 100%);
+      background: rgba(13, 17, 24, .95);
+      color: #e9edf3;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 30px 76px rgba(15, 23, 42, .28);
+    }
+    .window-head { padding: 13px 16px; display: flex; gap: 7px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .window-head i { width: 10px; height: 10px; border-radius: 50%; background: #303848; }
+    .window-body { padding: 24px; font-family: var(--mono); font-size: 12px; line-height: 2; }
+    .map-visual { width: min(560px, 100%); }
+    .map-visual svg { width: 100%; height: auto; filter: drop-shadow(0 24px 60px rgba(15, 23, 42, .18)); }
+    .route { fill: none; stroke: var(--accent); stroke-width: 5; stroke-dasharray: 18 12; }
+    .lane { fill: none; stroke: #c6cfdd; stroke-width: 3; }
+    .grid-visual {
+      width: min(560px, 100%);
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+    .grid-cell {
+      aspect-ratio: 1.55;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 42, .04);
+    }
+    .grid-cell i { width: 6px; height: 6px; border-radius: 50%; background: #c4ccd9; }
+    .grid-cell.on { border-color: var(--accent-line); background: var(--accent-soft); }
+    .grid-cell.on i { background: var(--accent); }
+
+    .strength-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding-bottom: 64px; }
+    .strength { padding: 30px; min-height: 330px; display: flex; flex-direction: column; transition: all .4s cubic-bezier(.4,0,.2,1); }
+    .strength:hover { 
+      transform: translateY(-8px); 
+      border-color: var(--accent-line); 
+      background: var(--panel-2); 
+      box-shadow: 0 16px 40px rgba(59,130,246,.1);
+    }
+    .strength-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 34px; }
+    .icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-family: var(--mono);
+    }
+    .strength h3 { font-size: 21px; margin-bottom: 14px; }
+    .strength p { color: var(--dim); font-size: 14.5px; flex: 1; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 22px; margin-top: 24px; border-top: 1px solid var(--line); }
+    .tag { border: 1px solid var(--line); color: var(--faint); font-size: 11px; padding: 4px 10px; border-radius: 999px; }
+
+    .contact-section {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .contact-section:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(900px 480px at 50% 100%, rgba(226,58,44,.07), transparent 70%),
+        radial-gradient(900px 420px at 12% 0%, rgba(70,120,170,.1), transparent 65%);
+    }
+    .contact-body { position: relative; width: var(--w); padding: 60px 0 80px; }
+    .contact-title-zh { display: block; color: var(--dim); font-size: 42px; font-weight: 700; letter-spacing: .08em; margin-bottom: 12px; }
+    .contact-title-en { display: block; font-family: var(--display); font-size: 108px; line-height: 1.02; font-weight: 800; letter-spacing: -.018em; text-transform: uppercase; }
+    .contact-lede { max-width: 640px; color: var(--dim); margin: 36px 0 64px; font-size: 16px; }
+    .channel { display: flex; align-items: baseline; gap: 34px; padding: 26px 8px; border-top: 1px solid var(--line); transition: .28s ease; }
+    .channel:last-child { border-bottom: 1px solid var(--line); }
+    .channel:hover { background: rgba(15,23,42,.04); padding-left: 24px; }
+    .channel-key { width: 96px; color: var(--faint); font-size: 12px; letter-spacing: .26em; }
+    .channel-value { font-family: var(--mono); font-size: 30px; }
+    .channel:hover .channel-value { color: var(--accent); }
+    footer { border-top: 1px solid var(--line); color: var(--faint); font-size: 11px; letter-spacing: .18em; padding: 26px 0; }
+    .foot { display: flex; justify-content: space-between; gap: 20px; }
+
+    /* 固定桌面画布：窗口缩放时保持页面结构不重排，只改变可视区域。 */
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="#">ZHOUYC</a>
+      <div class="nav-links mono">
+        <a href="#about"><span class="accent">01</span> 经历</a>
+        <a href="#experience"><span class="accent">02</span> 工作</a>
+        <a href="#projects"><span class="accent">03</span> 项目</a>
+        <a href="#strengths"><span class="accent">04</span> 优势</a>
+      </div>
+      <a class="nav-cta mono" href="#contact">联系我</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-main">
+        <div class="hero-kicker mono animate-fade-in">AI PRODUCT · PORT AUTONOMY · GROWTH</div>
+        <p class="hello animate-slide-up delay-100">你好，我是 <strong>周友成</strong></p>
+        <h1 class="hero-title animate-slide-up delay-200">Product Manager</h1>
+        <p class="hero-lede animate-slide-up delay-300">具备 C 端增长与 B 端复杂系统双域产品经验。C 端主导多品牌 APP 增长裂变、营销工具与风控体系搭建；B 端深耕垂直行业，负责复杂业务系统产品化重构与项目交付。擅长以业务目标为导向，从场景出发拆解需求、抽象规则、推动跨团队落地，可将复杂技术逻辑转化为可落地可验收的产品方案；善用 AI 重构产品工作流，提升需求分析、文档输出与知识沉淀效率。</p>
+        <div class="hero-actions animate-slide-up delay-400">
+          <a class="btn btn-solid" href="#experience">工作经历 <span>↓</span></a>
+          <a class="btn" href="#projects">查看项目 <span>↓</span></a>
+          <a class="btn" href="#about">关于我 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="sec-head scroll-animate">
+        <div class="sec-meta"><span class="sec-idx">01</span><span>PROFILE</span><span class="sec-line"></span></div>
+        <h2 class="sec-title">Personal Experience</h2>
+        <p class="sec-desc">从 C 端用户增长到港口自动驾驶产品落地，我的核心优势是把复杂业务拆成可推进、可验收、可复用的产品系统。</p>
+      </div>
+
+      <div class="about-grid">
+        <aside class="about-card panel corner scroll-animate-left">
+          <div class="about-portrait-illustration">
+            <img src="./已生成图像 1.png" alt="周友成科技感卡通半身像">
+          </div>
+          <div class="contact-row"><span class="contact-key mono">PHONE</span><span>18058143508</span></div>
+          <div class="contact-row"><span class="contact-key mono">EMAIL</span><span>728784032@qq.com</span></div>
+          <div class="contact-row"><span class="contact-key mono">ROLE</span><span>产品经理</span></div>
+          <div class="contact-row"><span class="contact-key mono">FOCUS</span><span>港口自动驾驶 · AI提效</span></div>
+        </aside>
+
+        <div class="about-text scroll-animate-right">
+          <div class="timeline">
+            <div class="tl-row">
+              <div class="tl-period mono">2025.07 — 至今</div>
+              <div><div class="tl-org">杭州飞步科技股份有限公司 <span class="tl-role">高级产品经理</span></div><div class="tl-note">主导港口自动驾驶产品线规划与落地，覆盖高精地图标注、车辆告警、自动驾驶仿真、物流运力调度四大核心系统，支撑新加坡Tuas、梅山、上海港等海内外标杆港口项目商业化交付。</div></div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-period mono">2023.07 — 2025.06</div>
+              <div><div class="tl-org">比亚迪股份有限公司 <span class="tl-role">高级产品经理</span></div><div class="tl-note">主导王朝/海洋/腾势/仰望/方程豹五大品牌APP用户增长与产品能力体系建设，覆盖拉新裂变、营销工具、风控安全、售后服务线上化四大板块，累计带来120万潜在成交用户。</div></div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-period mono">2020.09 — 2023.03</div>
+              <div><div class="tl-org">浙江大学 <span class="tl-role">设计学 · 全日制硕士</span></div><div class="tl-note">计算机科学与技术学院。</div></div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-period mono">2014.09 — 2020.06</div>
+              <div><div class="tl-org">宁波财经学院 <span class="tl-role">产品设计 · 全日制本科</span></div><div class="tl-note">艺术与设计学院。</div></div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-period mono">2015.09 — 2017.09</div>
+              <div><div class="tl-org">部队服役 <span class="tl-role">甘肃张掖</span></div><div class="tl-note">形成高责任感、执行力与稳定抗压能力。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="sec-head scroll-animate">
+        <div class="sec-meta"><span class="sec-idx">02</span><span>WORK EXPERIENCE</span><span class="sec-line"></span></div>
+        <h2 class="sec-title">Work Experience</h2>
+        <p class="sec-desc">两段核心工作经历：飞步科技深耕港口自动驾驶产品落地，比亚迪主导五品牌APP用户增长与能力体系建设。</p>
+      </div>
+
+      <div class="project-list">
+        <article class="project panel corner scroll-animate-left">
+          <div class="project-visual">
+            <img class="project-image" src="./resume-portfolio-assets/feibu-autonomy-suite.png" alt="港口自动驾驶产品矩阵科技展示图">
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span class="accent">01</span><span class="badge">港口自动驾驶</span><span class="project-period">2025.07 — 至今</span></div>
+            <h3 class="project-title">杭州飞步科技股份有限公司</h3>
+            <p class="project-desc">主导港口自动驾驶产品线规划与落地，覆盖高精地图标注、车辆告警、自动驾驶仿真、物流运力调度四大核心系统，面向港口现场作业、安全运营与项目交付全场景，负责从需求调研、方案设计、研发推进到客户验收的全流程产品工作。</p>
+            <ul class="project-points">
+              <li><strong>高精地图标注系统：</strong>主导内部研发级标注工具向客户可交付产品化系统升级，累计闭环 <strong>60+项</strong>标注需求，单图标注周期从 <strong>7天压缩至2天</strong>，标注效率提升 <strong>71.4%</strong>。</li>
+              <li><strong>车辆告警系统：</strong>搭建告警分级、故障自愈与安全旁路体系，完成底层技术事件到现场运营语言的转化，提升车辆自动化作业水平。</li>
+              <li><strong>AI辅助产品工作流：</strong>覆盖需求拆解、规则梳理、PRD结构化、项目复盘等环节，将非结构化资料转化为可检索、可复用的结构化产品知识库。</li>
+            </ul>
+            <div class="chips"><span class="chip">高级产品经理</span><span class="chip">港口自动驾驶</span><span class="chip">71.4%效率提升</span><span class="chip">海内外项目</span></div>
+          </div>
+        </article>
+
+        <article class="project panel corner scroll-animate-right">
+          <div class="project-visual">
+            <img class="project-image" src="./resume-portfolio-assets/byd-growth-suite.png" alt="比亚迪多品牌增长产品科技展示图">
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span class="accent">02</span><span class="badge">C端增长</span><span class="project-period">2023.07 — 2025.06</span></div>
+            <h3 class="project-title">比亚迪股份有限公司</h3>
+            <p class="project-desc">主导王朝/海洋/腾势/仰望/方程豹五大品牌APP用户增长与产品能力体系建设，覆盖拉新裂变、营销工具、风控安全、售后服务线上化四大板块，通过标准化体系搭建与多品牌差异化适配，累计带来120万潜在成交用户。</p>
+            <ul class="project-points">
+              <li><strong>用户增长与裂变转化：</strong>从0到1搭建覆盖五大品牌的站内裂变全链路体系，累计带来潜在成交用户 <strong>120万</strong>，其中 <strong>14万+用户</strong>完成最终购车转化，裂变入口日均曝光超 <strong>80万</strong>。</li>
+              <li><strong>营销活动与风控安全：</strong>搭建标准化API接入体系，兼容10+类营销场景快速上线，活动开发周期缩短 <strong>50%</strong>；日均拦截风险请求 <strong>12万+次</strong>，注册风险率从 <strong>49.6%降至4.75%</strong>。</li>
+              <li><strong>售后服务线上化：</strong>完成全品牌 <strong>70%</strong>售后业务线上迁移，搭建全链路线上服务体系，累计服务车主超 <strong>200万人次</strong>，年节省印刷成本超 <strong>300万元</strong>。</li>
+            </ul>
+            <div class="chips"><span class="chip">高级产品经理</span><span class="chip">五品牌协同</span><span class="chip">120万用户</span><span class="chip">降本增效</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="sec-head scroll-animate">
+        <div class="sec-meta"><span class="sec-idx">03</span><span>PROJECTS</span><span class="sec-line"></span></div>
+        <h2 class="sec-title">Selected Projects</h2>
+        <p class="sec-desc">三个代表性项目：佛渡港口自动驾驶仿真、山东港物流运力调度平台、比亚迪跨品牌转介绍系统。</p>
+      </div>
+
+      <div class="project-list">
+        <article class="project panel corner scroll-animate-left">
+          <div class="project-visual">
+            <img class="project-image" src="./resume-portfolio-assets/fodu-simulation.png" alt="佛渡港口自动驾驶仿真项目科技展示图">
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span class="accent">01</span><span class="badge">仿真验证</span><span class="project-period">2025.10 — 2026.07</span></div>
+            <h3 class="project-title">佛渡港口自动驾驶仿真项目</h3>
+            <p class="project-desc">支撑佛渡港自动驾驶项目承接与方案验证，需对齐多方诉求搭建仿真验证体系，主导完成 <strong>10轮</strong>仿真迭代，为项目落地提供核心数据支撑。</p>
+            <ul class="project-points">
+              <li>牵头对接客户、业主与规划端，梳理港口作业规则、设备配置、查验流程与仿真指标口径，输出多轮需求方案与汇报材料。</li>
+              <li>完成 <strong>10轮仿真迭代</strong>，覆盖多作业量假设与工况对比，为客户方案评估、实车测试筹备及项目落地提供核心数据支撑。</li>
+              <li>协同研发、项目、商务多方资源，完成客户汇报与后续需求拆解。</li>
+            </ul>
+            <div class="chips"><span class="chip">仿真迭代</span><span class="chip">客户汇报</span><span class="chip">数据报告</span><span class="chip">10轮验证</span></div>
+          </div>
+        </article>
+
+        <article class="project panel corner">
+          <div class="project-visual">
+            <img class="project-image" src="./resume-portfolio-assets/shandong-logistics-platform.png" alt="山东港物流运力调度平台科技展示图">
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span class="accent">02</span><span class="badge">商业化平台</span><span class="project-period">2025.07 — 2026.06</span></div>
+            <h3 class="project-title">山东港物流运力调度平台项目</h3>
+            <p class="project-desc">山东港口集团供应链协同平台建设，需落地运输全链路数字化管理能力，覆盖承运商准入、运单管理、财务结算等全场景。</p>
+            <ul class="project-points">
+              <li>负责运输业务、车后生态、APP/管理后台等核心模块的方案设计与多端原型输出，覆盖承运商准入、运单管理、财务结算等全场景。</li>
+              <li>累计输出 <strong>25万字方案文档</strong>、<strong>400+页多端产品原型</strong>，支撑项目阶段性交付与 <strong>90%项目回款</strong>，保障商业化落地节奏。</li>
+              <li>设计信息中心、商务中心、运营中心、财务结算中心等核心模块，保障商业化落地节奏。</li>
+            </ul>
+            <div class="chips"><span class="chip">运力调度</span><span class="chip">多端原型</span><span class="chip">商业化</span><span class="chip">90%回款</span></div>
+          </div>
+        </article>
+
+        <article class="project panel corner scroll-animate-left">
+          <div class="project-visual">
+            <img class="project-image" src="./resume-portfolio-assets/byd-referral-system.png" alt="比亚迪跨品牌转介绍系统科技展示图">
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span class="accent">03</span><span class="badge">跨品牌协同</span><span class="project-period">2024.05 — 2025.05</span></div>
+            <h3 class="project-title">比亚迪跨品牌转介绍系统</h3>
+            <p class="project-desc">打通五大品牌 APP 用户流转壁垒，激活多品牌协同销售势能，实现品牌间用户高效流转与购车转化提升。</p>
+            <ul class="project-points">
+              <li>主导跨品牌转介绍全链路产品设计，采用「统一主链路 + 品牌差异化配置」方案，<strong>1.5个月</strong>推动一期上线，打通用户绑定、数据互通、奖励发放全流程。</li>
+              <li>协调总裁办、五大品牌、前后端、门店等十余个相关方，突破跨系统数据壁垒。</li>
+              <li>上线次月品牌间用户流转率达 <strong>15%</strong>，购车转化率提升 <strong>3.7%</strong>。</li>
+            </ul>
+            <div class="chips"><span class="chip">跨品牌</span><span class="chip">转介绍</span><span class="chip">15%流转率</span><span class="chip">3.7%转化提升</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="strengths">
+    <div class="container">
+      <div class="sec-head scroll-animate">
+        <div class="sec-meta"><span class="sec-idx">04</span><span>ADVANTAGES</span><span class="sec-line"></span></div>
+        <h2 class="sec-title">Personal Advantages</h2>
+        <p class="sec-desc">产品判断、复杂系统拆解、跨团队推动和 AI 工作流，是我目前最重要的四个能力锚点。</p>
+      </div>
+      <div class="strength-grid">
+        <div class="strength panel corner scroll-animate">
+          <div class="strength-top"><div class="icon">01</div><span class="mono accent">PM</span></div>
+          <h3>复杂 B 端系统</h3>
+          <p>兼具 C 端增长与 B 端复杂系统经验，能同时理解用户体验、业务流程、现场作业和技术约束，从场景出发拆解需求、抽象规则、推动跨团队落地。</p>
+          <div class="tag-row"><span class="tag">B端产品</span><span class="tag">系统拆解</span><span class="tag">跨团队交付</span></div>
+        </div>
+        <div class="strength panel corner scroll-animate delay-100">
+          <div class="strength-top"><div class="icon">02</div><span class="mono accent">AI</span></div>
+          <h3>AI 提效实践</h3>
+          <p>持续将 AI 用于需求拆解、项目材料整理、周报复盘和知识库沉淀，形成可复用的个人产品工作流，实现项目经验快速复用与交付效率提升。</p>
+          <div class="tag-row"><span class="tag">AI工作流</span><span class="tag">知识库</span><span class="tag">效率提升</span></div>
+        </div>
+        <div class="strength panel corner scroll-animate delay-200">
+          <div class="strength-top"><div class="icon">03</div><span class="mono accent">GROWTH</span></div>
+          <h3>C 端增长经验</h3>
+          <p>主导五品牌 APP 增长裂变全链路，站内裂变日均曝光80万+，风控注册风险率从49.6%降至4.75%，累计带来120万潜在成交用户。</p>
+          <div class="tag-row"><span class="tag">用户增长</span><span class="tag">风控体系</span><span class="tag">120万用户</span></div>
+        </div>
+        <div class="strength panel corner scroll-animate delay-300">
+          <div class="strength-top"><div class="icon">04</div><span class="mono accent">DELIVERY</span></div>
+          <h3>商业化交付</h3>
+          <p>累计输出25万字方案文档、400+页多端原型，支撑项目阶段性交付与90%回款，保障海内外港口项目商业化落地节奏。</p>
+          <div class="tag-row"><span class="tag">商业交付</span><span class="tag">90%回款</span><span class="tag">海内外项目</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container contact-body scroll-animate">
+      <div class="mono accent">CONTACT · OPEN TO PRODUCT OPPORTUNITIES</div>
+      <h2 style="margin-top: 42px;">
+        <span class="contact-title-zh">让产品经验变成可复用系统</span>
+        <span class="contact-title-en">Let's Build</span>
+      </h2>
+      <p class="contact-lede">如果你的团队正在寻找懂 C 端增长、也能深入复杂 B 端业务和 AI 提效实践的产品经理，欢迎联系我。</p>
+      <div>
+        <a class="channel" href="mailto:728784032@qq.com">
+          <span class="channel-key mono">EMAIL</span>
+          <span class="channel-value">728784032@qq.com</span>
+        </a>
+        <a class="channel" href="tel:18058143508">
+          <span class="channel-key mono">PHONE</span>
+          <span class="channel-value">18058143508</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <span>© 2026 ZHOU YOUCHENG</span>
+      <a href="#">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      var animateElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right');
+      animateElements.forEach(function(el) {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
